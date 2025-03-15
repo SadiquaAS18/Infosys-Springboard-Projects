@@ -1,0 +1,122 @@
+Project.ipynb
+Conditional Statements
+1. Check if a Number is Positive
+def check_positive_number(num):
+    # Fill in the code to check if num is positive
+    if num>0:
+        return "Positive"
+2. Determine Age Group
+Minor
+3. Categorize a Number
+def categorize_number(num):
+    if num > 0:
+        return "Positive"
+    
+    elif num < 0:
+        return "Negative"
+    
+    else:
+        return "Zero";
+4. Assign Grade Category
+def grade_category(grade):
+    if grade >= 90:
+        return "A"
+    elif grade >= 70:
+        return "B"
+    elif grade >= 50:
+        return "C"
+    else:
+        return "Fail"
+Looping Statements
+5. Calculate the Sum of Numbers
+def calculate_sum(numbers):
+    total = 0
+    # Fill in the loop to iterate through numbers and calculate the sum
+    for num in numbers:
+        total+=num
+    return total
+6. Print Numbers Up to a Limit
+def print_numbers_upto(limit):
+    num = 1
+    while num <= limit:
+        print(num, end=" ")
+        num += 1
+
+print_numbers_upto(5)
+1 2 3 4 5 
+7. Fix the Sum of Three Numbers
+def sum_of_three_numbers(a, b, c):
+    sum = a + b + c
+    return sum
+8. Calculate the Product of a List
+def calculate_product(numbers):
+    product = 1
+    for num in numbers:
+        product *= num
+    return product
+Break and Continue
+9. Find and Stop at a Specific Number
+def find_and_stop(numbers):
+    for num in numbers:
+        if num == 5:
+            break
+    return "Found 5"
+10. Skip Even Numbers in a Loop
+def skip_even_numbers(): for i in range(1, 6): if i % 2 == 0: continue print(i, end=" ")
+
+skip_even_numbers()
+
+11. Fix the Target Search Logic
+def find_target(numbers, target):
+    for num in numbers:
+        if num == target:
+            return "Target Found"
+    return "Target Not Found"
+12. Filter Odd Numbers from a List
+def filter_odd_numbers(numbers):
+    result = []
+    for num in numbers:
+        if num % 2 == 0:
+            continue
+        result.append(num)
+    return result
+
+    
+Mixed Activities
+13. Determine Number Sign and Calculate Sum Excluding Specific Number
+def specific_sum(num):
+    
+    if num > 0:  # Fill in the condition to check if the number is positive
+        sign = "Positive"
+        sum = 0
+        for i in range(1,num):  # Complete the range for the loop
+            if i == 5:  # Add condition to skip the number 5
+                continue
+            sum += i
+    return sign, sum
+14. Loop with Conditional Skip and Break
+for i in range(1, 6):
+    if i == 3:
+        continue
+    elif i == 5:
+        break
+    print(i, end="")
+124
+15. Debug and Fix: Sum of Squares of Even Numbers
+def calculate_sum_even_squares(n):
+    total = 0
+    for num in range(1, n):
+        if num % 2 == 0:
+            total += num**2
+    return total
+16. Identify and Return the Last Valid Number
+def find_last_valid(n):
+    last_valid = None
+    for i in range(1, n + 1):
+        if i % 3 == 0:  # Skip multiples of 3
+            continue
+        if i > 30:  # Stop when the number exceeds 30
+            break
+        last_valid = i  # Update the last valid number
+    return last_valid
+ 
