@@ -1,0 +1,678 @@
+Blueprint.ipynb
+Blueprint of Error Handling in Python
+Introduction
+What is Error Handling in Python?
+Error in python is the unneccesary halt due to problem in the execution of the python code.
+
+Multiple Choice Question(MCQ)
+Contains learn activities and quiz to declare variable of interger, string and boolean type. Any one of the given four option or the multiple options can be correct.
+
+Activity 1. What will be result of this code?
+x = 10/'A'
+1
+0
+Error
+10
+Solution: Error
+
+ 
+Activity 2. Which exception is raised when you try to access a list index that doesn't exist?
+ListError
+IndexError
+ArrayError
+ArrayOutOfBound
+Sol: IndexError
+
+Short Answer Type Activity
+These activities contain single correct solution that need to type in the space given.
+
+Activity 3.Catching a value error
+Task: Write a code to catch a ValueError when converting a non-numeric string "abc" to an integer
+
+# Solution: this is a solution code in python
+try:
+    num = int("abc")
+except ValueError:
+    print("Invalid input!")
+Activity 4. Handle OverflowError in Exponentiation
+Task: Write Python code to handle an OverflowError when calculating a very large exponent. If the error occurs, print "Number too large!"
+
+base = 10
+exponent = 10000  # Exponent is very large
+
+try:
+    result = base ** exponent
+except OverflowError:
+    print("Number too large!")
+ 
+Code Activity
+These activities contain task to write python code to solve the problem.
+
+Activity 5. Handling zero division error
+Task: Python code to handle a ZeroDivisionError when dividing two numbers, a = 10 and b = 0. If an error occurs, print "Cannot divide by zero."
+
+#Solution: this is solution code 
+a = 10
+b = 0
+try:
+    result = a / b
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+Cannot divide by zero.
+Activity 7. Handling File Not Found Error
+Task: Write python code to handle file not found error
+
+# Solution: this is solution code
+
+try:
+    with open("data.txt", "r") as file:
+        content = file.read()
+except FileNotFoundError:
+    print("File not found.")
+ 
+Finding output
+Activity 8. What is the output of this code
+try:
+    x = "datawars"
+    y = x/10
+except:
+    print("Error")
+Sol: Error
+
+Activity 9. Raising Custom Exceptions
+Task: this is a description of the activity to solve the problem
+
+# Solution: this is solution code
+
+num = int(input("Enter a positive number: "))
+if num < 0:
+    raise ValueError("Negative numbers are not allowed.")
+else:
+    print("You entered:", num)
+Enter a positive number:  2
+You entered: 2
+ 
+ 
+authors.ipynb
+Error Handling in Python
+Introduction
+Error handling in Python is like having a safety net for your code—an essential skill that helps ensure your programs keep running smoothly, even when they hit a bump in the road. 🎢 Imagine you’re building a rollercoaster ride. You want everything to work perfectly, but sometimes unexpected things happen, like a squirrel finding its way onto the tracks! 🐿️ Instead of letting the ride come to a screeching halt, you need a plan to handle that situation gracefully.
+
+In Python, errors pop up when the interpreter encounters something it can't handle. ❌ This could be due to a typo, dividing by zero, or trying to access a file that doesn’t exist. Without error handling, your program would crash, leaving users confused and frustrated. 😕 But with a little foresight, you can catch these errors before they bring everything to a halt!
+
+Learning to handle errors not only makes your code more robust, but it also boosts your confidence as a programmer. 🚀 So buckle up and get ready to dive into the exciting world of error handling in Python—it’s a key ingredient to crafting reliable and user-friendly applications! 🌟
+
+What is Errors in Python?
+In python, an error refers to problems in a program that can cause it to stop executing. Errors can occur for various reasons, such as incorrect syntax, invalid operations, or missing resources.
+
+Common Scenarios Causing Errors:
+
+Dividing a number by zero.
+
+Accessing a variable that hasn’t been defined.
+
+Reading a non-existent file.
+
+Using the wrong data type in an operation.
+
+There are three main types of errors
+
+Syntax Errors: These occur when the code violates the rules of the Python language. Essentially, it's like a grammatical error in a sentence.
+
+Example: Missing a colon at the end of an if statement.
+
+Runtime Errors (Exceptions): These occur while the program is running, even if the syntax is correct. They happen when the program encounters a situation it cannot handle.
+
+Example: Trying to divide by zero.
+
+Logical Errors: These occur when the program runs without crashing but produces incorrect results. The code itself is syntactically correct, but the logic is flawed.
+
+Example: Calculating the average of a list of numbers incorrectly.
+
+What are Exception in Python?
+Exceptions are specific types of runtime errors that can be caught and handled by the program, allowing it to continue running or to manage the error without disrupting the execution of the program.
+
+Common Python Exceptions are as follows:
+
+NameError: A variable or function name is not found.
+
+TypeError: An operation is applied to an inappropriate type of object.
+
+IndexError: Trying to access an index that doesn't exist in a list or string.
+
+KeyError: Trying to access a key that doesn't exist in a dictionary.
+
+AttributeError: Trying to access an attribute that doesn't exist on an object.
+
+ZeroDivisionError: Trying to divide by zero.
+
+IndentationError: Incorrect indentation in the code.
+
+Let's Explore!
+Activity 1. What type of error occurs when you try to divide by zero in Python?
+Syntax Error
+Logical Error
+Runtime Error
+Indentation Error
+Sol: Runtime Error. ZeroDivisionError is a type of runtime error that occurs when you try to divide a number by zero.
+
+Activity 2. Which of the following represents a Syntax Error?
+print(5 / 0)
+if x == 5 print("x is five")
+y = int("hello")
+average = sum(numbers) / len(numbers) + 1
+Sol: if x == 5 print("x is five").
+
+Correct syntax is: if x == 5: print("x is five")
+
+there is a colon missing after if condition statement
+
+Activity 3. What will be output of given code?
+if True print("Hello")
+"Hello"
+Syntax Error
+Logical Error
+Empty String
+Sol: Syntax Error
+
+Activity 4. What type of error might this code produce result = (10 + 5) / 3 + 1 if result is expected to be 5?
+Syntax Error
+Logical Error
+Runtime Error
+Sol: Logical Error
+
+Activity 5. Which among the following will raise syntax error?
+x = 5
+print("Result":)
+for i in range(10): print(i)
+print(10/0)
+Sol: print("Result":)
+
+How to Handle Errors in Python?
+Python uses try-except blocks to handle errors. These blocks allow you to try a piece of code and catch specific errors if they occur.
+
+Syntax:
+
+try:
+    # Code that might raise an error
+except SomeError:
+    # Code to execute if the error occurs
+Example:
+
+try:
+    result = 10 / 0  # This raises a ZeroDivisionError
+except ZeroDivisionError:
+    print("You can’t divide by zero!")
+The program doesn’t crash; instead, it prints an error message and continues executing.
+
+Error handling is an essential part of Python programming. By understanding how to manage errors effectively using try, except, else, and finally, you can build programs that are resilient and user-friendly. In the next section, we’ll explore advanced error handling techniques and custom exceptions. 🚀
+
+ 
+Activity 6. What type of error occurs when trying to read a file that does not exist?
+Logical Error
+Syntax Error
+Runtime Error
+Indentation Error
+Sol: Runtime Error
+
+Activity 7. You wrote a program that asks users for a number, but the user enters a string instead. How can you handle potential errors?
+Use a try/except block to catch ValueError
+Use an if statement to check if it's a number
+Just let the program crash
+None of the above
+Answer: 1. Use a try/except block to catch ValueError
+
+Various Methods to Handle Errors in Python
+Error handling can be approached in multiple ways based on the context of your program. Here are some common methods:
+
+1. Using try-except Blocks:
+
+This is the most common way to handle errors in Python. It allows you to catch and handle exceptions.
+
+try:
+    print(10 / 0)
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+2. Using Multiple Except Blocks:
+
+You can handle different types of errors separately by specifying multiple except blocks
+
+try:
+    num = int("hello")
+except ValueError:
+    print("Invalid input! Please enter a number.")
+except TypeError:
+    print("Type error occurred.")
+3. Catching All Exceptions:
+
+You can catch all exceptions using a generic except block, but this should be used cautiously.
+
+try:
+    risky_code()
+except Exception as e:
+    print(f"An error occurred: {e}")
+4. Using else Block:
+
+This block executes if no exception occurs
+
+try:
+    print("No error!")
+else:
+    print("Code executed successfully.")
+5. Using finally Block:
+
+This block is used for cleanup actions, such as closing files or releasing resources.
+
+try:
+    file = open("example.txt", "r")
+finally:
+    file.close()
+    print("File closed.")
+6. Raising Exceptions:
+
+You can manually raise exceptions using the raise keyword
+
+try:
+    age = -1
+    if age < 0:
+        raise ValueError("Age cannot be negative.")
+except ValueError as e:
+    print(e)
+Activity 8. During arithmetic operations, if you accidentally multiply a number with a string, which error will emerge? How can you prevent this?
+TypeError; use try/except to catch it
+SyntaxError; change the code format
+NameError; check variable names
+IndentationError; adjust spacing
+Sol: 1. TypeError; use try/except to catch it
+
+Activity 9. What will be output of following code?
+def add_numbers(x, y):  
+    return x + y  
+
+print(add_numbers("5", 7))
+12
+57
+TypeError
+"5" + 7
+Answer: 3. TypeError
+
+Activity 10. What is the purpose of an else block in a try-except structure?
+To provide cleanup actions
+To execute code only if no exceptions occur
+To handle all types of exceptions
+It has no purpose and is optional
+Answer: 2). To execute code only if no exceptions occur.
+
+Activity 11. What does the finally block guarantee in Python?
+It guarantees that the code runs before exceptions are raised.
+It guarantees that the code runs regardless of whether an exception occurred or not.
+It executes only when no exceptions are raised.
+It runs only if the try block has no errors.
+Answer: 2. It guarantees that the code runs regardless of whether an exception occurred or not.
+
+Activity 12. Which of the following is not a built-in exception in Python?
+ImportError
+ValueError
+AttributeError
+OutOfMemoryError
+Sol: OutOfMemoryError
+
+Activity 13. When handling exceptions, what happens if an exception occurs inside an except block but there is no subsequent try block to catch it?
+The program handles the second exception automatically.
+The program terminates and prints the traceback.
+The program continues executing the next line after the except block.
+It raises a warning but does not stop execution.
+Answer: 2. The program terminates and prints the traceback
+
+Activity 14. Which of the following statements correctly describes how to handle an IndentationError?
+Wrap the code in a try-except block to catch it.
+Correct the indentation in the code before running it.
+Use a default value when the error occurs.
+Indentation errors can be ignored without consequences.
+Answer: 2. Correct the indentation in the code before running it.
+
+Activity 15. Which of the following statements about finally blocks is false?
+A finally block executes regardless of whether an exception is raised.
+A finally block can be skipped if there is an unhandled exception.
+The finally block will execute even if a return statement is encountered in the try block.
+You cannot have a finally block without a corresponding try block.
+Answer: 2. A finally block can be skipped if there is an unhandled exception.
+
+Activity 16. Select the correct output of this code
+while True:  
+    try:  
+        num = int(input("Enter a positive number (or -1 to quit): "))  
+        if num == -1:  
+            print("Exiting...")  
+            break  
+        elif num < 0:  
+            raise ValueError("The number must be positive!")  
+    except ValueError as e:  
+        print(e)
+It will print an error message if a negative number is entered, then continue asking for input until a positive number is entered or -1 is typed.
+It will terminate immediately if a negative number is entered.
+It will print nothing and exit the program.
+It will give a syntax error.
+Answer: 1. It will print an error message if a negative number is entered, then continue asking for input until a positive number is entered or -1 is typed.
+
+Activity 17. What will be the output of the following code snippet if the user inputs -5?
+while True:  
+    try:  
+        number = int(input("Enter a positive number: "))  
+        if number <= 0:  
+            raise ValueError("Only positive numbers are allowed.")  
+        print(f"You entered: {number}")  
+        break  
+    except ValueError as e:  
+        print(e)
+You entered: 3
+
+
+
+
+
+
+
+Activities
+1
+What type of error occurs when you try to divide by zero in Python?
+
+Submitted answer:
+
+
+Runtime Error
+
+
+Indentation Error
+
+
+Syntax Error
+
+
+Logical Error
+
+2
+Which of the following represents a Syntax Error?
+
+Submitted answer:
+
+
+y = int("hello")
+
+
+if x == 5 print("x is five")
+
+
+average = sum(numbers) / len(numbers) + 1
+
+
+print(5 / 0)
+
+3
+What will be output of given python code?
+
+image-3
+
+Submitted answer:
+
+
+Syntax Error
+
+
+Empty String
+
+
+Print "Hello"
+
+
+Logical Error
+
+4
+What type of error might this code produce result = (10 + 5) / 3 + 1 if result is expected to be 5?
+
+Submitted answer:
+
+
+Syntax Error
+
+
+TypeError
+
+
+Logical Error
+
+
+Runtime Error
+
+5
+Which among the following will raise Syntax Error?
+
+Submitted answer:
+
+
+print("Result":)
+
+
+print(10/0)
+
+
+for i in range(10): print(i)
+
+
+x = 5
+
+6
+What type of error occurs when trying to read a file that does not exist?
+
+Submitted answer:
+
+
+Syntax Error
+
+
+Runtime Error
+
+
+Logical Error
+
+
+Indentation Error
+
+7
+You wrote a program that asks users for a number, but the user enters a string instead. How can you handle potential errors?
+
+Submitted answer:
+
+
+Just let the program crash
+
+
+None of the above
+
+
+Use a try/except block to catch ValueError
+
+
+Use an if statement to check if it's a number
+
+8
+During arithmetic operations, if you accidentally multiply a float with a string, which error will occur? How can you prevent this?
+
+Submitted answer:
+
+
+TypeError; use try/except to catch it
+
+
+NameError; check variable names
+
+
+IndentationError; adjust spacing
+
+
+SyntaxError; change the code format
+
+9
+What will be output of following code?
+
+image-9
+
+Submitted answer:
+
+
+12
+
+
+57
+
+
+"5" + 7
+
+
+TypeError
+
+10
+What is the purpose of an else block in a try-except structure?
+
+Submitted answer:
+
+
+It has no purpose and is optional
+
+
+To execute code only if no exceptions occur
+
+
+To provide cleanup actions
+
+
+To handle all types of exceptions
+
+11
+What does the finally block guarantee in Python?
+
+Submitted answer:
+
+
+It executes only when no exceptions are raised
+
+
+It guarantees that the code runs regardless of whether an exception occurred or not.
+
+
+It runs only if the try block has no errors
+
+
+It guarantees that the code runs before exceptions are raised
+
+12
+Which of the following is not a built-in exception in Python?
+
+Submitted answer:
+
+
+ImportError
+
+
+ValueError
+
+
+OutOfMemoryError
+
+
+AttributeError
+
+13
+When handling exceptions, what happens if an exception occurs inside an except block but there is no subsequent try block to catch it?
+
+Submitted answer:
+
+
+The program handles the second exception automatically
+
+
+The program terminates and prints the traceback
+
+
+The program continues executing the next line after the except block
+
+
+It raises a warning but does not stop execution
+
+14
+Which of the following statements correctly describes how to handle an IndentationError?
+
+Submitted answer:
+
+
+Correct the indentation in the code before running it
+
+
+Indentation errors can be ignored without consequences
+
+
+Use a default value when the error occurs
+
+
+Wrap the code in a try-except block to catch it
+
+15
+Which of the following statements about finally blocks is false?
+
+Submitted answer:
+
+
+You cannot have a finally block without a corresponding try block
+
+
+The finally block will execute even if a return statement is encountered in the try block
+
+
+A finally block executes regardless of whether an exception is raised
+
+
+A finally block can be skipped if there is an unhandled exception
+
+16
+Select the correct output of this code
+
+image-16
+
+Submitted answer:
+
+
+It will terminate immediately if a negative number is entered
+
+
+It will print an error message if a negative number (other than -1) is entered, and continue asking for input until -1 is entered
+
+
+It will give a syntax error
+
+
+It will print nothing and exit the program
+
+17
+What will be the output of the following code snippet if the user inputs is -5.
+
+image-17
+
+Submitted answer:
+
+
+Execution will stop without any output
+
+
+You entered: 5
+
+
+Only positive numbers are allowed
+
+
+Only positive numbers are allowed. You entered: 3
+Only positive numbers are allowed.
+Only positive numbers are allowed. You entered: 3.
+Execution will stop without any output.
+Answer: 2. Only positive numbers are allowed.
+
+ 
